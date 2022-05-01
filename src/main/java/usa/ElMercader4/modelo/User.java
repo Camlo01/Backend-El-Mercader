@@ -34,4 +34,4 @@ public class User {
     private String zone;
     private String type;      
     
-}
+  }

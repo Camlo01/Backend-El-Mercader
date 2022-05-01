@@ -13,21 +13,21 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
-@ComponentScan(basePackages={"usa.ElMercader4"})
+@ComponentScan(basePackages = {"usa.ElMercader4"})
 
 public class ElMercader4Application {
-    
+
     @Autowired
-    private UserRepository repoUser; 
+    private UserRepository repoUser;
     //private GadgetRepository repoGadget;
     //private OrderRepository repoOrder;
 
-	public static void main(String[] args) {
-		SpringApplication.run(ElMercader4Application.class, args);
-	}
-        
+    public static void main(String[] args) {
+        SpringApplication.run(ElMercader4Application.class, args);
+    }
+
     @Bean
-    ApplicationRunner applicationRunner(){
+    ApplicationRunner applicationRunner() {
         return args -> {
             System.out.println("APLICACIÓN INICIADA!.");
             List<User> ur = repoUser.getAll();
@@ -38,10 +38,10 @@ public class ElMercader4Application {
             //System.out.println("Ordenes: " + or.size());                       
         };
     }
-    
+
     @Bean
-    public WebMvcConfigurer corsConfigurer(){
-        return new WebMvcConfigurer(){
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**").allowedOrigins("*");
@@ -50,4 +50,3 @@ public class ElMercader4Application {
     }
 
 }
-

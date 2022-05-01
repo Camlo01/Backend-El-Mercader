@@ -32,14 +32,7 @@ public class UserRepository {
         return repo.findAll();
     }
 
-    /**
-     * Metodo para buscar un usuario por Id
-     * @param id con el que busca al usuario
-     * @return el usuario registrado con ese Id
-     */
-    public Optional<User> getById(Integer id) {
-        return repo.getById(id);
-    }
+   
     
     /**
      * Metodo para guardar un usuario en la BD
@@ -56,6 +49,15 @@ public class UserRepository {
      */
     public void delete(User usuario){
         repo.delete(usuario);
+    }
+    
+     /**
+     * Metodo para buscar un usuario por Id
+     * @param id con el que busca al usuario
+     * @return el usuario registrado con ese Id
+     */
+    public Optional<User> getById(Integer id) {
+        return repo.getById(id);
     }
     
     /**

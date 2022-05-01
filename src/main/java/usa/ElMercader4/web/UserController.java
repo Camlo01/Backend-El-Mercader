@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RestController;
 import usa.ElMercader4.modelo.User;
 import usa.ElMercader4.servicios.UserService;
 
-
 /**
  *
  * @author DELL
@@ -42,45 +41,46 @@ public class UserController {
     public List<User> getAll() {
         return service.getAll();
     }
-    
-    // CONSULTA ID PUNTUAL
-    @GetMapping("/{id}")
-    private User getById(@PathVariable("id") Integer id) {
-        return service.getById(id);
-    }    
-    
-    // CONSULTA EMAIL-PASSWORD
-    @GetMapping("/{email}/{password}")
-    private User getByEmail(@PathVariable("email") String email, @PathVariable("password") String password) {
-        return service.getByEmailAndPassword(email, password);
-    }
-    
-    // CONSULTA EMAIL
-    @GetMapping("/emailexist/{email}")
-    private boolean getByEmail(@PathVariable("email") String email) {
-        return service.getByEmail(email);
-    }      
 
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<User> save(@RequestBody User usuario) {
         return new ResponseEntity(service.save(usuario), HttpStatus.CREATED);
     }
-    
+
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<User> update(@RequestBody User usuario){
+    public ResponseEntity<User> update(@RequestBody User usuario) {
         return new ResponseEntity(service.update(usuario), HttpStatus.CREATED);
     }
-    
+
     @DeleteMapping("/{id}")
-    public ResponseEntity delete(@PathVariable("id") Integer id){
+    public ResponseEntity delete(@PathVariable("id") Integer id) {
         service.delete(id);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
-    
+
     @GetMapping("/birthday/{monthBirthtDay}")
-    public List<User> getByMonthBirthtDay(@PathVariable("monthBirthtDay") String monthBirthtDay){
+    public List<User> getByMonthBirthtDay(@PathVariable("monthBirthtDay") String monthBirthtDay) {
         return service.getByMonthBirthtDay(monthBirthtDay);
     }
+
+    // CONSULTA ID PUNTUAL
+    @GetMapping("/{id}")
+    private User getById(@PathVariable("id") Integer id) {
+        return service.getById(id);
+    }
+
+    // CONSULTA EMAIL-PASSWORD
+    @GetMapping("/{email}/{password}")
+    private User getByEmail(@PathVariable("email") String email, @PathVariable("password") String password) {
+        return service.getByEmailAndPassword(email, password);
+    }
+
+    // CONSULTA EMAIL
+    @GetMapping("/emailexist/{email}")
+    private boolean getByEmail(@PathVariable("email") String email) {
+        return service.getByEmail(email);
+    }
+
 }

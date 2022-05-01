@@ -42,6 +42,7 @@ public class GadgetService {
         if (og.isPresent()){
             Gadget act = og.get();
             //validacion para no actualizar datos nulos o vacios
+            //String
             if (prod.getBrand() != null && prod.getBrand().length() > 0) {
                 act.setBrand(prod.getBrand());
             }
@@ -54,7 +55,7 @@ public class GadgetService {
             if (prod.getDescription() != null && prod.getDescription().length() > 0) {
                 act.setDescription(prod.getDescription());
             }
-            //aqui
+            //PRECIO DOUBLE
             if (prod.getPrice() != null && prod.getPrice() > 0) {
                 act.setPrice(prod.getPrice());
             }

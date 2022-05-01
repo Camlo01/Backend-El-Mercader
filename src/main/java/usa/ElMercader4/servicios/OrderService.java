@@ -9,7 +9,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import usa.ElMercader4.modelo.Order;
-import usa.ElMercader4.modelo.User;
 import usa.ElMercader4.repositorios.OrderRepository;
 
 /**
